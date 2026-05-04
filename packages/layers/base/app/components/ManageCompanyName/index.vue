@@ -7,6 +7,9 @@ type Props = {
   business?: BusinessData | BusinessDataPublic
   contact?: ContactPoint
   loading?: boolean
+  // name translation section (shown when addNameTranslationLabel is provided)
+  nameTranslationAllowedActions?: ManageAllowedAction[]
+  nameTranslationLabelOverrides?: TableLabelOverrides
 } & (
   | {
     readonly: false
@@ -26,7 +29,10 @@ const {
   contact
 } = defineProps<Props>()
 
+const nameTranslationsStateKey = computed(() => `${stateKey}-name-translations`)
+
 const activeNameRequest = defineModel<ActiveNameRequestSchema | undefined>('active-name-request', { required: true })
+const activeNameTranslation = defineModel<ActiveNameTranslationSchema | undefined>('active-name-translation', { required: true })
 
 const { t } = useI18n()
 const schema = getNameRequestSchema()
@@ -148,6 +154,22 @@ function cleanupForm() {
         <USkeleton v-if="loading" class="h-6 w-2/3 sm:w-1/3" />
         <span v-else class="flex-1">{{ formattedFoundingDate }}</span>
       </div>
+      <div class="flex gap-2 sm:gap-6 px-4 sm:px-6 flex-col sm:flex-row border-l-3 border-transparent py-4 sm:py-5">
+        <span class="text-neutral-highlighted font-bold w-full sm:basis-1/4">
+          {{ $t('label.nameTranslations') }}
+        </span>
+        <div class="flex flex-col flex-1 gap-4">
+          <span>{{ $t('text.addNameTranslation') }}</span>
+          <ManageNameTranslations
+            v-model:active-name-translation="activeNameTranslation"
+            :state-key="nameTranslationsStateKey"
+            :loading="loading"
+            :add-label="$t('label.addNameTranslation')"
+            :allowed-actions="nameTranslationAllowedActions"
+            :label-overrides="nameTranslationLabelOverrides"
+          />
+        </div>
+      </div>      
       <USeparator class="px-4 sm:px-6" />
       <div class="flex gap-2 sm:gap-6 px-4 sm:px-6 flex-col sm:flex-row border-l-3 border-transparent py-4 sm:py-5">
         <span class="text-neutral-highlighted font-bold w-full sm:basis-1/4">
