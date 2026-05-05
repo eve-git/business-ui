@@ -35,7 +35,6 @@ const contact: ContactPoint = {
 const activeNameRequest = ref<ActiveNameRequestSchema | undefined>(undefined)
 const activeNameTranslation = ref<ActiveNameTranslationSchema | undefined>(undefined)
 const loading = ref(false)
-const { t } = useI18n()
 </script>
 
 <template>
@@ -48,7 +47,11 @@ const { t } = useI18n()
       :contact="contact"
       :loading="loading"
       :readonly="true"
-      :name-translation-allowed-actions="[ManageAllowedAction.ADD, ManageAllowedAction.NAME_CHANGE, ManageAllowedAction.REMOVE]"
+      :name-translation-allowed-actions="[
+        ManageAllowedAction.ADD,
+        ManageAllowedAction.NAME_CHANGE,
+        ManageAllowedAction.REMOVE
+      ]"
     />
   </UContainer>
 </template>

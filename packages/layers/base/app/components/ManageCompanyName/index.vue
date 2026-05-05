@@ -169,7 +169,7 @@ function cleanupForm() {
             :label-overrides="nameTranslationLabelOverrides"
           />
         </div>
-      </div>      
+      </div>
       <USeparator class="px-4 sm:px-6" />
       <div class="flex gap-2 sm:gap-6 px-4 sm:px-6 flex-col sm:flex-row border-l-3 border-transparent py-4 sm:py-5">
         <span class="text-neutral-highlighted font-bold w-full sm:basis-1/4">

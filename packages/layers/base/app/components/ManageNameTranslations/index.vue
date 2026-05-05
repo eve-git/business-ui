@@ -115,34 +115,34 @@ function clearAllAlerts() {
     </p>
 
     <TableNameTranslation
-        v-if="tableState.length"
-        v-model:expanded="expandedState"
-        :data="tableState"
-        :loading
-        :empty-text="emptyText"
-        :allowed-actions="allowedActions"
-        :prevent-actions="!!activeNameTranslation"
-        :label-overrides="{ editLabel: $t('label.correct'), ...labelOverrides }"
-        @init-edit="initEditNameTranslation"
-        @remove="removeNameTranslation"
-        @undo="undoNameTranslation"
-        @action-prevented="setActiveFormAlert"
-      >
-        <template #expanded="{ row }">
-          <div class="px-4 sm:px-6">
-            <FormNameTranslation
-              v-if="activeNameTranslation"
-              v-model="activeNameTranslation"
-              :title="editLabel"
-              name="activeNameTranslation"
-              variant="edit"
-              :state-key="stateKey"
-              @cancel="cleanupNameTranslationForm"
-              @done="() => applyEdits(activeNameTranslation, row)"
-              @remove="() => { cleanupNameTranslationForm(); removeNameTranslation(row) }"
-            />
-          </div>
-        </template>
-      </TableNameTranslation>
+      v-if="tableState.length"
+      v-model:expanded="expandedState"
+      :data="tableState"
+      :loading
+      :empty-text="emptyText"
+      :allowed-actions="allowedActions"
+      :prevent-actions="!!activeNameTranslation"
+      :label-overrides="{ editLabel: $t('label.correct'), ...labelOverrides }"
+      @init-edit="initEditNameTranslation"
+      @remove="removeNameTranslation"
+      @undo="undoNameTranslation"
+      @action-prevented="setActiveFormAlert"
+    >
+      <template #expanded="{ row }">
+        <div class="px-4 sm:px-6">
+          <FormNameTranslation
+            v-if="activeNameTranslation"
+            v-model="activeNameTranslation"
+            :title="editLabel"
+            name="activeNameTranslation"
+            variant="edit"
+            :state-key="stateKey"
+            @cancel="cleanupNameTranslationForm"
+            @done="() => applyEdits(activeNameTranslation, row)"
+            @remove="() => { cleanupNameTranslationForm(); removeNameTranslation(row) }"
+          />
+        </div>
+      </template>
+    </TableNameTranslation>
   </div>
 </template>
