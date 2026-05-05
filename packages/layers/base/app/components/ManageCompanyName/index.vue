@@ -32,7 +32,7 @@ const {
 const nameTranslationsStateKey = computed(() => `${stateKey}-name-translations`)
 
 const activeNameRequest = defineModel<ActiveNameRequestSchema | undefined>('active-name-request', { required: true })
-const activeNameTranslation = defineModel<ActiveNameTranslationSchema | undefined>('active-name-translation', { required: true })
+const activeNameTranslation = defineModel<ActiveNameTranslationSchema | undefined>('active-name-translation')
 
 const { t } = useI18n()
 const schema = getNameRequestSchema()
@@ -165,7 +165,7 @@ function cleanupForm() {
             :state-key="nameTranslationsStateKey"
             :loading="loading"
             :add-label="$t('label.addNameTranslation')"
-            :allowed-actions="nameTranslationAllowedActions"
+            :allowed-actions="readonly ? [] : nameTranslationAllowedActions"
             :label-overrides="nameTranslationLabelOverrides"
           />
         </div>

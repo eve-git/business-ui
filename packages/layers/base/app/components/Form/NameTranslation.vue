@@ -59,6 +59,7 @@ const labelId = useId()
           </span>
         </div>
       </legend>
+      <span v-else :id="labelId" class="sr-only">{{ title }}</span>
       <div
         class="mt-4"
         :class="{
