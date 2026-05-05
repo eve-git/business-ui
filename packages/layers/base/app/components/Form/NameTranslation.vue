@@ -55,7 +55,11 @@ const labelId = useId()
           </span>
         </div>
       </legend>
-      <span v-else :id="labelId" class="sr-only">{{ title }}</span>
+      <span
+        v-else
+        :id="labelId"
+        class="sr-only"
+      >{{ title }}</span>
       <div
         class="mt-4"
         :class="{
@@ -74,7 +78,10 @@ const labelId = useId()
           :help="$t('text.latinAlphabetOnly')"
         />
       </div>
-      <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center mt-6" :class="variant === 'edit' ? 'justify-between' : 'justify-end'">
+      <div
+        class="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center mt-6"
+        :class="variant === 'edit' ? 'justify-between' : 'justify-end'"
+      >
         <UButton
           v-if="variant === 'edit'"
           variant="outline"
@@ -84,7 +91,10 @@ const labelId = useId()
           @mousedown.prevent
           @click="$emit('remove')"
         />
-        <div class="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center" :class="variant === 'edit' ? '' : 'w-full'">
+        <div
+          class="flex flex-col sm:flex-row gap-2 sm:gap-6 items-center"
+          :class="variant === 'edit' ? '' : 'w-full'"
+        >
           <FormAlertMessage
             :id="messageId"
             :message="alerts[formTarget]"

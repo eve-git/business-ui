@@ -87,7 +87,11 @@ function cleanupForm() {
 
 <template>
   <ConnectPageSection
-    :heading="{ label: $t('label.yourCompany'), icon: 'i-mdi-domain', ui: 'bg-shade-secondary px-4 py-4 sm:px-6 rounded-t-md' }"
+    :heading="{
+      label: $t('label.yourCompany'),
+      icon: 'i-mdi-domain',
+      ui: 'bg-shade-secondary px-4 py-4 sm:px-6 rounded-t-md'
+    }"
     ui-body="p-0 sm:p-0"
   >
     <div class="flex flex-col">
