@@ -67,7 +67,10 @@ function initEditNameTranslation(row: TableBusinessRow<NameTranslationSchema>) {
   currentEditingRow = row.original.new
   currentEditingRow.isEditing = true
 
-  editLabel = $t('label.editingItemName', { name: row.original.new.name })
+  const isNew = row.original.new.actions.includes(ActionType.ADDED)
+  editLabel = isNew
+    ? $t('label.editingItemName', { name: row.original.new.name })
+    : $t('label.correctingItemName', { name: row.original.new.name })
   expandedState.value = { [row.index]: true }
 }
 

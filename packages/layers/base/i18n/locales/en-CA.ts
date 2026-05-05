@@ -378,6 +378,7 @@ export default {
     courtOrderNumber: 'Court Order Number',
     courtOrderNumberOpt: 'Court Order Number (Optional)',
     correcting: 'Correcting',
+    correctingItemName: 'Correcting {name}',
     currency: 'Currency',
     date: 'Date',
     datNumber: 'DAT Number',

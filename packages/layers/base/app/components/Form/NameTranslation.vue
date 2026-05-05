@@ -50,10 +50,6 @@ const labelId = useId()
         class="py-4 px-4 sm:px-8 flex justify-between items-center gap-2.5 w-full bg-primary text-white"
       >
         <div class="flex items-center gap-2.5">
-          <UIcon
-            name="i-mdi-edit"
-            class="size-6 shrink-0 text-white"
-          />
           <span :id="labelId" class="font-semibold text-base">
             {{ title }}
           </span>
